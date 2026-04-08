@@ -51,4 +51,5 @@ export const getWeatherByLocation = (cityName) => async (dispatch) => {
   }
 };
 
+// ovaj export za reducer pisemo na kraju file
 export default weatherSlice.reducer;

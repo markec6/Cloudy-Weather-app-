@@ -28,6 +28,8 @@ export default function Header() {
   const dispatch = useDispatch<any>();
 
   return (
+    // dva uslova 1. za search location, 2. za menu
+
     <View style={{ zIndex: 10 }}>
       {inSearch ? (
         <View style={{ zIndex: 1000 }}>
