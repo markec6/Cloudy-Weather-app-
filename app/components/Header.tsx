@@ -1,4 +1,4 @@
-import { getWeatherByLocation } from "@/Redux/WeatherSlice";
+import { getWeatherByLocation, setCurrentCity } from "@/Redux/WeatherSlice";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -22,6 +22,9 @@ export default function Header() {
   const historyLocation = useSelector(
     (state: any) => state.weather.historyLocation,
   );
+  // state za promenu slide da nam se automatski u header ispise ime trenutnog grada
+  const currentCity = useSelector((state: any) => state.weather.currentCity);
+
   const [isOpen, setIsOpen] = useState(false);
   const [inSearch, setInSearch] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -30,7 +33,8 @@ export default function Header() {
   return (
     // dva uslova 1. za search location, 2. za menu
 
-    <View style={{ zIndex: 10 }}>
+    // USLOV ZA SEARCH LOCATION
+    <View style={{ zIndex: 10 }} className="px-[12px]">
       {inSearch ? (
         <View style={{ zIndex: 1000 }}>
           <View className="flex flex-row items-center justify-between pt-[10px] pb-[5px]">
@@ -43,6 +47,7 @@ export default function Header() {
               onSubmitEditing={() => {
                 if (searchValue.trim().length > 0) {
                   dispatch(getWeatherByLocation(searchValue));
+                  dispatch(setCurrentCity(searchValue));
                   setInSearch(false);
                   setSearchValue("");
                 }
@@ -67,7 +72,7 @@ export default function Header() {
             </TouchableOpacity>
 
             <Text className="text-[20px] font-semibold">
-              {weatherData?.name}
+              {currentCity || "Belgrade"}
             </Text>
 
             <TouchableOpacity onPress={() => setInSearch(true)}>
@@ -83,7 +88,7 @@ export default function Header() {
                 position: "absolute",
                 top: 0, // Da pokrije i padding roditelja
                 left: -20,
-                width: width,
+                width: "120%",
                 height: height,
                 backgroundColor: "#2563eb",
                 zIndex: 999,
@@ -91,7 +96,7 @@ export default function Header() {
                 paddingTop: 20,
               }}
             >
-              <View className="flex flex-col gap-[24px]">
+              <View className="flex flex-col gap-[24px] px-[12px]">
                 <TouchableOpacity onPress={() => setIsOpen(false)}>
                   <Entypo name="cross" size={30} color="white" />
                 </TouchableOpacity>
@@ -106,7 +111,7 @@ export default function Header() {
                 </View>
               </View>
 
-              <View className="flex flex-col gap-[10px]">
+              <View className="flex flex-col gap-[10px] px-[12px]">
                 <Text className="text-[16px] font-semibold text-white">
                   Search history:
                 </Text>
@@ -114,20 +119,16 @@ export default function Header() {
                   [...historyLocation]
                     .reverse()
                     .slice(0, 3)
-                    .map((city: string, index: number) => (
-                      <TouchableOpacity
+                    .map((city: any, index: number) => (
+                      <View
                         className="flex flex-row items-center gap-[6px]"
                         key={index}
-                        onPress={() => {
-                          dispatch(getWeatherByLocation(city));
-                          setIsOpen(false);
-                        }}
                       >
                         <Entypo name="location-pin" size={24} color="black" />
                         <Text className="text-white font-bold text-[20px]">
-                          {city}
+                          {city.name}
                         </Text>
-                      </TouchableOpacity>
+                      </View>
                     ))
                 ) : (
                   <Text className="text-white opacity-80 font-semibold">
@@ -136,7 +137,7 @@ export default function Header() {
                 )}
               </View>
 
-              <View className="flex flex-col gap-[12px]">
+              <View className="flex flex-col gap-[12px] px-[12px]">
                 <Text className="text-white font-semibold">Settings</Text>
                 <Text className="text-white font-semibold">Share this app</Text>
                 <Text className="text-white font-semibold">Rate this app</Text>
