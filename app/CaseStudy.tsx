@@ -18,7 +18,7 @@ export default function NewsPage() {
           {CaseStudyData.map((link, index) => (
             <View key={index}>
               <Text
-                className={`text-[16px] rounded-[6px] font-semibold py-[6px] px-[12px] ${currentIndex === index ? "bg-blue-700/60 text-white" : "bg-gray-300/70 text-black"}`}
+                className={`text-[16px] rounded-[7px] font-semibold py-[6px] px-[12px] ${currentIndex === index ? "bg-blue-700/60 text-white" : "bg-gray-300/70 text-black"}`}
                 onPress={() => setCurrentIndex(index)}
               >
                 {link.title}
