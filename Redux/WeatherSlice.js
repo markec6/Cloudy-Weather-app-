@@ -13,6 +13,9 @@ const initialState = {
 
   // ovo ja state za promenu na slide uz index
   currentCity: "Belgrade",
+  // ovo isRehydrated nam govori da li smo procitali localStorage
+  // Vracanje podataka iz memorije opet u app, inicijalno je false jer na prvom korisnjenju idalje nemamo nista u memoriji
+  isRehydrated: false,
 
   // state je prvo bio [], ali sada je uslov da ako u saved ima nesto onda pretvori to u []
   // a ako nema nista onda neka inicijalno bude Belgrade
@@ -25,6 +28,10 @@ const weatherSlice = createSlice({
   reducers: {
     setWeatherData(state, action) {
       state.weatherData = action.payload;
+    },
+    // ovo je potvrda da je nas Storage procitan
+    setRehydrated: (state, action) => {
+      state.isRehydrated = action.payload;
     },
     setCurrentCity(state, action) {
       state.currentCity = action.payload;
@@ -44,8 +51,12 @@ const weatherSlice = createSlice({
   },
 });
 
-export const { setWeatherData, addHistoryLocation, setCurrentCity } =
-  weatherSlice.actions;
+export const {
+  setWeatherData,
+  addHistoryLocation,
+  setCurrentCity,
+  setRehydrated,
+} = weatherSlice.actions;
 
 // Ovde radimo Thunk funkciju
 // Thunk funkcija je dinamicka funkcija koja prihvata i dispatch i jos neki arg koji nam treba

@@ -106,7 +106,7 @@ export default function Header() {
                     Current location
                   </Text>
                   <Text className="text-[20px] text-white font-semibold">
-                    {weatherData?.name}
+                    {currentCity}
                   </Text>
                 </View>
               </View>

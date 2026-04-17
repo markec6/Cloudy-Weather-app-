@@ -33,7 +33,7 @@ export default function ForeCastOneDay() {
   return (
     <View className="w-[95%] mx-auto mt-[30px]">
       <Text className="text-[20px] font-semibold mb-[12px]">Forecast</Text>
-      <View className="bg-white p-[12px] rounded-[20px]">
+      <View className="bg-white p-[16px] rounded-[20px]">
         <View className="mb-[32px]">
           <Text className="opacity-70">
             {weatherData?.weather?.[0].description}
@@ -57,7 +57,7 @@ export default function ForeCastOneDay() {
                   source={{
                     uri: `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`,
                   }}
-                  className="w-10 h-10 bg-blue-700/80 rounded-full"
+                  className="w-10 h-10 bg-blue-700/70 rounded-full"
                 />
                 <Text className="font-semibold mt-[5px]">
                   {Math.round(day.main?.temp)}°C
