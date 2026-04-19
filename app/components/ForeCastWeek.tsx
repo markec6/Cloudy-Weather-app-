@@ -32,15 +32,17 @@ export default function ForeCastWeek() {
 
   return (
     <View className="w-[95%] mx-auto mt-[30px]">
-      <Text className="text-[20px] font-semibold mb-[12px]">Forecast</Text>
+      <Text className="text-[20px] font-semibold mb-[12px] text-[#363B64]">
+        Forecast
+      </Text>
 
       <View className="bg-white p-[16px] rounded-[20px]">
         {/* Gornji deo: Opis i Datum */}
         <View className="mb-[32px]">
-          <Text className="opacity-70">
+          <Text className="opacity-70 ">
             {weatherData?.weather?.[0].description}
           </Text>
-          <Text className="text-[22px] font-semibold opacity-90">
+          <Text className="text-[22px] font-bold text-[#363B64]">
             {formatDate(weatherData?.dt)}
           </Text>
           <Text style={{ textAlign: "right", opacity: 0.6 }}>Max/Min</Text>
@@ -95,31 +97,18 @@ export default function ForeCastWeek() {
                   />
                 </View>
 
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: "600",
-                    marginLeft: 16,
-                  }}
-                >
+                <Text className="text-[16px] ml-[16px] font-semibold text-[#363B64]">
                   {dayName}
                 </Text>
               </View>
 
               {/** Desna strana **/}
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Text style={{ fontSize: 14, fontWeight: "700" }}>
+                <Text className="text-[14px] font-bold text-[#363B64]">
                   {Math.round(day.main.temp_max)}°C
                 </Text>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontWeight: "600",
-                    opacity: 0.5,
-                    marginLeft: 4,
-                  }}
-                >
-                  / {Math.round(day.main.temp_min - 8)}°C
+                <Text className="text-[14px] ml-[4px] font-bold text-[#363B64]">
+                  / {Math.round(day.main.temp_min - 6)}°C
                 </Text>
               </View>
             </View>

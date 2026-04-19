@@ -32,13 +32,15 @@ export default function ForeCastOneDay() {
 
   return (
     <View className="w-[95%] mx-auto mt-[30px]">
-      <Text className="text-[20px] font-semibold mb-[12px]">Forecast</Text>
+      <Text className="text-[20px] font-semibold mb-[12px] text-[#363B64]">
+        Forecast
+      </Text>
       <View className="bg-white p-[16px] rounded-[20px]">
         <View className="mb-[32px]">
           <Text className="opacity-70">
             {weatherData?.weather?.[0].description}
           </Text>
-          <Text className="text-[22px] font-semibold opacity-90">
+          <Text className="text-[22px] font-bold text-[#363B64]">
             {/** pristupamo mu: uvek ta parse funkcija(i unutra pristupimo APi datumu koji je u sekundama)**/}
             {formatDate(weatherData?.dt)}
           </Text>
@@ -59,7 +61,7 @@ export default function ForeCastOneDay() {
                   }}
                   className="w-10 h-10 bg-blue-700/70 rounded-full"
                 />
-                <Text className="font-semibold mt-[5px]">
+                <Text className="font-bold mt-[5px] text-[#363B64]">
                   {Math.round(day.main?.temp)}°C
                 </Text>
               </View>

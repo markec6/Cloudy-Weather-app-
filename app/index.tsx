@@ -11,6 +11,7 @@ import {
   setCurrentCity,
   setRehydrated,
 } from "../Redux/WeatherSlice";
+import Footer from "./components/Footer";
 import ForeCastOneDay from "./components/ForeCastOneDay";
 import ForeCastWeek from "./components/ForeCastWeek";
 import Header from "./components/Header";
@@ -79,6 +80,7 @@ export default function Index() {
           <ForeCastWeek />
           <Map />
           <SunCondition />
+          <Footer />
         </View>
       </SafeAreaView>
     </ScrollView>

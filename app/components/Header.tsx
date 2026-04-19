@@ -68,15 +68,15 @@ export default function Header() {
           {/** Ovo je galvni Header, kada je state false **/}
           <View className="flex-row w-full justify-between items-center py-[12px] mt-[10px]">
             <TouchableOpacity onPress={() => setIsOpen(true)}>
-              <Ionicons name="menu" size={26} color="black" />
+              <Ionicons name="menu" size={26} color="#363B64" />
             </TouchableOpacity>
 
-            <Text className="text-[20px] font-semibold">
+            <Text className="text-[20px] font-semibold text-[#363B64]">
               {currentCity || "Belgrade"}
             </Text>
 
             <TouchableOpacity onPress={() => setInSearch(true)}>
-              <Feather name="search" size={26} color="black" />
+              <Feather name="search" size={26} color="#363B64" />
             </TouchableOpacity>
           </View>
 

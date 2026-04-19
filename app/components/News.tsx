@@ -3,7 +3,7 @@ import { Image, Text, View } from "react-native";
 export default function CaseStudy() {
   return (
     <View className="w-[95%] mx-auto mt-[30px] ">
-      <Text className="text-[20px] font-semibold mb-[12px]">
+      <Text className="text-[20px] font-semibold mb-[12px] text-[#363B64]">
         Case Study for this app
       </Text>
       <View className="w-full">

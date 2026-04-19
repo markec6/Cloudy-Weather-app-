@@ -22,16 +22,20 @@ export default function SunCondition() {
 
   return (
     <View className="w-[95%] mx-auto mt-[20px]">
-      <Text className="text-[20px] font-semibold mb-[12px]">Sun Condition</Text>
+      <Text className="text-[20px] font-semibold mb-[12px] text-[#363B64]">
+        Sun Condition
+      </Text>
       <View className="p-[12px] bg-white rounded-[10px] flex flex-col gap-[32px]">
         <View className="flex flex-row justify-between pt-[10px]">
           <View>
             <Text className="text-[12px] opacity-70">Conditions</Text>
-            <Text className="text-[18px] font-semibold">Sun</Text>
+            <Text className="text-[18px] font-semibold text-[#363B64]">
+              Sun
+            </Text>
           </View>
           <View>
             <Text className="text-[12px] opacity-70">Timezone</Text>
-            <Text className="text-[18px] font-semibold">
+            <Text className="text-[18px] font-semibold text-[#363B64]">
               {weatherData.timezone}
             </Text>
           </View>
@@ -39,10 +43,10 @@ export default function SunCondition() {
         <View className="w-[90%] mx-auto">
           <View className="w-[100%] h-[2px] bg-black/50"></View>
           <View className="flex flex-row justify-between mt-[5px]">
-            <Text className="text-[14px] font-semibold opacity-80">
+            <Text className="text-[14px] font-bold text-[#363B64]">
               {formatToHour(weatherData.sys.sunrise, weatherData.timezone)}
             </Text>
-            <Text className="text-[14px] font-semibold opacity-80">
+            <Text className="text-[14px] font-bold  text-[#363B64]">
               {formatToHour(weatherData.sys.sunset, weatherData.timezone)}
             </Text>
           </View>

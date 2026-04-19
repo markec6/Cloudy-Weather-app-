@@ -19,7 +19,7 @@ export default function Map() {
   if (Platform.OS === "web") {
     return (
       <View className="w-[95%] mx-auto rounded-[20px] h-[450px]">
-        <Text className="text-[20px] font-semibold mb-[12px] mt-[20px]">
+        <Text className="text-[20px] font-semibold mb-[12px] mt-[20px] text-[#363B64]">
           Map
         </Text>
         <iframe src={osmUrl} className="h-full" />
@@ -38,7 +38,9 @@ export default function Map() {
       <WebView source={{ uri: osmUrl }} />
       <View className="p-[12px] border-x border-b border-slate-200 rounded-b-[20px] flex flex-col gap-[6px] bg-white">
         <Text className="opacity-60 text-[12px]">Location</Text>
-        <Text className="text-[18px] font-semibold">{weatherData.name}</Text>
+        <Text className="text-[18px] font-semibold text-[#363B64]">
+          {weatherData.name}
+        </Text>
       </View>
     </View>
   );
